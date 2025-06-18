@@ -1,4 +1,4 @@
-package com.building;
+package com.buildings;
 
 public class Building {
     public void building(int building,int floor){
