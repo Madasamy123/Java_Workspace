@@ -7,7 +7,8 @@ import java.io.*;
 
 
 public class TemperatureClass {
-    public void writeLocations(String fileName,Location location)  {
+    public void writeLocations(String fileName,Location location) throws IOException {
+
 //        Temperature_sensor tempSensor = new Temperature_sensor(25);
 
 //        Sensor humidity = new Humidity(16);
@@ -30,87 +31,86 @@ public class TemperatureClass {
 
 //        //  Organization
 //
-
-        Organization organization=new Organization();
-        organization.setName("Madasamy Technology");
-        organization.setCeo("Madasamy");
-        organization.setEmail("madasamy@gmail.com");
-        organization.setPhone("9876545673");
-
-
-        try{
-            FileOutputStream outputStream=new FileOutputStream("MadasamyTechnology.txt");
-            ObjectOutputStream objectOutputStream=new ObjectOutputStream(outputStream);
-            objectOutputStream.writeObject(organization);
-            objectOutputStream.close();
-
-            FileInputStream fileInputStream=new FileInputStream("MadasamyTechnology.txt");
-            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
-            Organization myOrg=(Organization) objectInputStream.readObject();
-            System.out.println(myOrg);
-
-        } catch (IOException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+//
+//        Organization organization=new Organization();
+//        organization.setName("Madasamy Technology");
+//        organization.setCeo("Madasamy");
+//        organization.setEmail("madasamy@gmail.com");
+//        organization.setPhone("9876545673");
+//
+//
+//        try{
+//            FileOutputStream outputStream=new FileOutputStream("MadasamyTechnology.txt");
+//            ObjectOutputStream objectOutputStream=new ObjectOutputStream(outputStream);
+//            objectOutputStream.writeObject(organization);
+//            objectOutputStream.close();
+//
+//            FileInputStream fileInputStream=new FileInputStream("MadasamyTechnology.txt");
+//            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+//            Organization myOrg=(Organization) objectInputStream.readObject();
+//            System.out.println(myOrg);
+//
+//        } catch (IOException | ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
 
 //   Location
-
-        Location location=new Location();
-        location.setArea("Pirancheri");
-        location.setCity("Town");
-        location.setDistrict("Tirunelveli");
-        location.setPincode("627451");
-
-
-        try{
-            FileOutputStream outputStream =new FileOutputStream("Location.txt");
-            ObjectOutputStream objectOutputStream=new ObjectOutputStream(outputStream);
-            objectOutputStream.writeObject(location);
-            objectOutputStream.close();
-
-            FileInputStream fileInputStream=new FileInputStream("Location.txt");
-            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
-            Location myOrg=(Location) objectInputStream.readObject();
-            System.out.println(myOrg);
+//
+//        Location location=new Location();
+//        location.setArea("Pirancheri");
+//        location.setCity("Town");
+//        location.setDistrict("Tirunelveli");
+//        location.setPincode("627451");
 
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+//        try{
+        FileOutputStream outputStream = new FileOutputStream(fileName);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        objectOutputStream.writeObject(location);
+        objectOutputStream.close();
+
+
+//            FileInputStream fileInputStream=new FileInputStream("Location.txt");
+//            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+//            Location myOrg=(Location) objectInputStream.readObject();
+//            System.out.println(myOrg);
+
+
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
         // Location =  2
 
-        Location location2=new Location();
-        location2.setArea("Perungudi");
-        location2.setCity("Guindy");
-        location2.setDistrict("Chennai");
-        location2.setPincode("621 001");
+//        Location location2=new Location();
+//        location2.setArea("Perungudi");
+//        location2.setCity("Guindy");
+//        location2.setDistrict("Chennai");
+//        location2.setPincode("621 001");
 
 
-        try{
-            FileOutputStream outputStream =new FileOutputStream("SecondLocation.txt");
-            ObjectOutputStream objectOutputStream=new ObjectOutputStream(outputStream);
-            objectOutputStream.writeObject(location2);
-            objectOutputStream.close();
-
-            FileInputStream fileInputStream=new FileInputStream("SecondLocation.txt");
-            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
-            Location myOrg=(Location) objectInputStream.readObject();
-            System.out.println(myOrg);
-
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+//        try{
+//            FileOutputStream outputStream =new FileOutputStream("SecondLocation.txt");
+//            ObjectOutputStream objectOutputStream=new ObjectOutputStream(outputStream);
+//            objectOutputStream.writeObject(location2);
+//            objectOutputStream.close();
+//
+//            FileInputStream fileInputStream=new FileInputStream("SecondLocation.txt");
+//            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+//            Location myOrg=(Location) objectInputStream.readObject();
+//            System.out.println(myOrg);
+//
+//
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
         // Building
