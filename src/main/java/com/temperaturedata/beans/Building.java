@@ -2,10 +2,10 @@ package com.temperaturedata.beans;
 
 import com.ExceptionHandling.BuildingFloorException;
 
-import java.util.List;
+import java.util.Set;
 
 public abstract sealed class Building permits Commercial, Residential {
-    private List<Floor> floor;
+    private Set<Floor> floor;
     private String colour;
     private String shape;
     private String name;
@@ -16,15 +16,13 @@ public abstract sealed class Building permits Commercial, Residential {
     private Boolean parkingAvailable;
     public abstract void ebBill();
 
+    public Set<Floor> getFloor() {
+        return floor;
+    }
 
-//    public Floor[] getFloors() {
-//        return floors;
-//    }
-//
-//    public void setFloors(Floor[] floors) {
-//
-//        this.floors = floors;
-//    }
+    public void setFloor(Set<Floor> floor) {
+        this.floor = floor;
+    }
 
     public String getColour() {
         return colour;

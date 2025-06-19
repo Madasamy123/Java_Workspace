@@ -4,6 +4,7 @@ import com.temperaturedata.beans.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class TemperatureClass {
@@ -26,8 +27,8 @@ public class TemperatureClass {
         organization.setLocation(locationList);
 
 
-        
-        Commercial commercial = new Commercial();
+
+//        Commercial commercial = new Commercial();
 
         Commercial Navigator=createBuilding(2,"Navigator","Blue",25.4);
         Commercial creator=createBuilding(3,"Creator","Red",34.5);
@@ -46,6 +47,30 @@ public class TemperatureClass {
         cbmBuildings.add(Inventor);
 
         coimbatore.setBuildings(cbmBuildings);
+
+
+
+        //
+
+
+        Floor navigatorFloor=createFloor(1,"FirstFloor",2);
+        Floor navigatorFloor1=createFloor(2,"Second Floor",2);
+
+        Set<Floor> floorsList=Set.of(navigatorFloor,navigatorFloor1);
+        Navigator.setFloor(floorsList);
+
+
+        Floor creatorFloor=createFloor(3,"FirstFloor",2);
+        Floor creatorFloor1=createFloor(4,"Second Floor",2);
+
+        Set<Floor>creators=Set.of(creatorFloor,creatorFloor1);
+        creator.setFloor(creators);
+
+
+
+
+
+
 
 
 
@@ -75,6 +100,16 @@ public class TemperatureClass {
         return  commercial;
 
 
+
+    }
+
+    public static Floor createFloor(int floorNumber,String name,int noOfZone){
+        Floor floor=new Floor();
+        floor.setFloorNumber(floorNumber);
+        floor.setName(name);
+        floor.setNoOfZone(noOfZone);
+
+        return floor;
 
     }
 
