@@ -1,6 +1,9 @@
 package com.temperaturedata.beans;
 
+import com.ExceptionHandling.BuildingFloorException;
+
 public final class Residential extends Building{
+
     String type;
 
 

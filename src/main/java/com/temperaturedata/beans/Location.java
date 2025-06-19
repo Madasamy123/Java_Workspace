@@ -1,9 +1,10 @@
 package com.temperaturedata.beans;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Location implements Serializable {
-    private Building[] buildings;
+    private List<Building> buildings;
     private String doorNo;
     private String street;
     private String area;
@@ -15,12 +16,14 @@ public class Location implements Serializable {
     private double longtitute;
     private double latitute;
 
-    public Building[] getBuildings() {
+
+
+    public List<Building> getBuildings() {
         return buildings;
     }
 
-    public void setBuildings(Building[] buildings) {
-        this.buildings = buildings;
+    public void setBuildings( List<Building> building) {
+        this.buildings = building;
     }
 
     public String getDoorNo() {

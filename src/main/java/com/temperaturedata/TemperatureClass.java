@@ -1,13 +1,129 @@
 package com.temperaturedata;
 
-
 import com.temperaturedata.beans.*;
 
-import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TemperatureClass {
-    public void writeLocations(String fileName,Location location) throws IOException {
+    public static void main(String[] args) {
+
+        Organization organization = new Organization();
+        organization.setName("Madasamy Technology");
+        organization.setCeo("Madasamy");
+        organization.setEmail("madasamy@gmail.com");
+        organization.setPhone("9876545673");
+
+
+        Location chennai = createLocation("123", "AbdulKalam Street", "Guindy", "Chennai", "TamilNadu");
+        Location coimbatore = createLocation("45", "mgr street", "porur", "Coimbatore", "TamilNadu");
+
+        List<Location> locationList = new ArrayList<>();
+        locationList.add(chennai);
+        locationList.add(coimbatore);
+
+        organization.setLocation(locationList);
+
+
+        
+        Commercial commercial = new Commercial();
+
+        Commercial Navigator=createBuilding(2,"Navigator","Blue",25.4);
+        Commercial creator=createBuilding(3,"Creator","Red",34.5);
+        Commercial Inventor=createBuilding(4,"Inventor","Yellow",34.5);
+        Commercial Innovator=createBuilding(5,"Innovator","Orange",54.6);
+
+
+        List<Building>chennaiBuildings=new ArrayList<>();
+        chennaiBuildings.add(Navigator);
+        chennaiBuildings.add(creator);
+
+        chennai.setBuildings(chennaiBuildings);
+
+        List<Building>cbmBuildings=new ArrayList<>();
+        cbmBuildings.add(Innovator);
+        cbmBuildings.add(Inventor);
+
+        coimbatore.setBuildings(cbmBuildings);
+
+
+
+    }
+
+
+
+    public static Location createLocation(String doorNo, String street, String city, String district, String state) {
+        Location location = new Location();
+        location.setDoorNo(doorNo);
+        location.setStreet(street);
+        location.setCity(city);
+        location.setDistrict(district);
+        location.setState(state);
+
+        return location;
+    }
+
+    public static Commercial createBuilding(int buildingNumber,String name,String colour,double height)  {
+
+        Commercial commercial=new Commercial();
+        commercial.setBulidingNumber(buildingNumber);
+        commercial.setName(name);
+        commercial.setColour(colour);
+        commercial.setHeight(height);
+
+        return  commercial;
+
+
+
+    }
+
+
+}
+
+
+
+
+
+//    public static void main(String[] args) throws BuildingFloorException {
+//        Residential residential = new Residential();
+//        try {
+//            residential.setNoOfFloors(150);
+//        } catch (BuildingFloorException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//}
+
+
+
+    //  temperature range exception
+
+//    public static void main(String[] args) throws TemperatureRangeException {
+//        try {
+//
+//
+//            Temperature_sensor temperature_sensor = new Temperature_sensor(45);
+//            temperature_sensor = new Temperature_sensor(98);
+//        } catch (TemperatureRangeException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
+
+
+//    public void writeLocations(String fileName,Location location) throws IOException {
+//
+//        try(FileOutputStream fileOutputStream=new FileOutputStream("chennai.txt")){
+//            ObjectOutputStream outputStream=new ObjectOutputStream(fileOutputStream);
+//
+//
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//        finally {
+//
+//        }
 
 //        Temperature_sensor tempSensor = new Temperature_sensor(25);
 
@@ -64,10 +180,10 @@ public class TemperatureClass {
 
 
 //        try{
-        FileOutputStream outputStream = new FileOutputStream(fileName);
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-        objectOutputStream.writeObject(location);
-        objectOutputStream.close();
+//        FileOutputStream outputStream = new FileOutputStream(fileName);
+//        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+//        objectOutputStream.writeObject(location);
+//        objectOutputStream.close();
 
 
 //            FileInputStream fileInputStream=new FileInputStream("Location.txt");
@@ -118,7 +234,7 @@ public class TemperatureClass {
 
 
 
-    }
-
-
-}
+//    }
+//
+//
+//}

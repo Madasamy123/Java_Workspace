@@ -1,7 +1,11 @@
 package com.temperaturedata.beans;
 
+import com.ExceptionHandling.BuildingFloorException;
+
+import java.util.List;
+
 public abstract sealed class Building permits Commercial, Residential {
-    private Floor[] floors;
+    private List<Floor> floor;
     private String colour;
     private String shape;
     private String name;
@@ -12,13 +16,15 @@ public abstract sealed class Building permits Commercial, Residential {
     private Boolean parkingAvailable;
     public abstract void ebBill();
 
-    public Floor[] getFloors() {
-        return floors;
-    }
 
-    public void setFloors(Floor[] floors) {
-        this.floors = floors;
-    }
+//    public Floor[] getFloors() {
+//        return floors;
+//    }
+//
+//    public void setFloors(Floor[] floors) {
+//
+//        this.floors = floors;
+//    }
 
     public String getColour() {
         return colour;
@@ -56,7 +62,12 @@ public abstract sealed class Building permits Commercial, Residential {
         return noOfFloors;
     }
 
-    public void setNoOfFloors(int noOfFloors) {
+    public void setNoOfFloors(int noOfFloors) throws BuildingFloorException {
+        if(noOfFloors>100){
+
+                throw new BuildingFloorException("Out of  Floors in Buildings");
+
+        }
         this.noOfFloors = noOfFloors;
     }
 

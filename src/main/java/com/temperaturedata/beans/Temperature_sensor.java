@@ -1,9 +1,19 @@
 package com.temperaturedata.beans;
 
+import com.ExceptionHandling.TemperatureRangeException;
+
 public class Temperature_sensor implements Sensor{
+
     private float temp;
-    public Temperature_sensor(float atemp){
-        temp=atemp;
+
+
+
+    public Temperature_sensor(float atemp)throws TemperatureRangeException{
+
+        if(atemp<-89 || atemp>58){
+            throw new TemperatureRangeException("Out of Temperature Range");
+        }
+//        temp=atemp;
     }
     @Override
     public float getReading() {

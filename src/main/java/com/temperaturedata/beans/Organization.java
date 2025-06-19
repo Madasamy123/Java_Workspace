@@ -1,7 +1,9 @@
 package com.temperaturedata.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Organization implements Serializable {
     private String name;
@@ -11,6 +13,7 @@ public class Organization implements Serializable {
     private String email;
     private String phone;
     private String ceo;
+    private List<Location> location;
 
     public String getName() {
         return name;
@@ -26,6 +29,14 @@ public class Organization implements Serializable {
 
     public void setCertificateid(String certificateid) {
         this.certificateid = certificateid;
+    }
+
+    public List<Location> getLocation() {
+        return location;
+    }
+
+    public void setLocation(List<Location> location) {
+        this.location = location;
     }
 
     public String getType() {
