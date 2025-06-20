@@ -1,14 +1,16 @@
 package com.temperaturedata;
 
+import com.ExceptionHandling.TemperatureRangeException;
 import com.temperaturedata.beans.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalTime;
+import java.util.*;
 
 
 public class TemperatureClass {
     public static void main(String[] args) {
+
+        //  organization
 
         Organization organization = new Organization();
         organization.setName("Madasamy Technology");
@@ -16,6 +18,7 @@ public class TemperatureClass {
         organization.setEmail("madasamy@gmail.com");
         organization.setPhone("9876545673");
 
+       //  locations
 
         Location chennai = createLocation("123", "AbdulKalam Street", "Guindy", "Chennai", "TamilNadu");
         Location coimbatore = createLocation("45", "mgr street", "porur", "Coimbatore", "TamilNadu");
@@ -27,8 +30,7 @@ public class TemperatureClass {
         organization.setLocation(locationList);
 
 
-
-//        Commercial commercial = new Commercial();
+        // Buildings
 
         Commercial Navigator=createBuilding(2,"Navigator","Blue",25.4);
         Commercial creator=createBuilding(3,"Creator","Red",34.5);
@@ -36,35 +38,50 @@ public class TemperatureClass {
         Commercial Innovator=createBuilding(5,"Innovator","Orange",54.6);
 
 
-        List<Building>chennaiBuildings=new ArrayList<>();
+        Set<Building>chennaiBuildings=new TreeSet<>();
         chennaiBuildings.add(Navigator);
         chennaiBuildings.add(creator);
 
         chennai.setBuildings(chennaiBuildings);
 
-        List<Building>cbmBuildings=new ArrayList<>();
+        Set<Building>cbmBuildings=new TreeSet<>();
         cbmBuildings.add(Innovator);
         cbmBuildings.add(Inventor);
 
         coimbatore.setBuildings(cbmBuildings);
 
 
-
-        //
+        // floors
 
 
         Floor navigatorFloor=createFloor(1,"FirstFloor",2);
         Floor navigatorFloor1=createFloor(2,"Second Floor",2);
 
         Set<Floor> floorsList=Set.of(navigatorFloor,navigatorFloor1);
-        Navigator.setFloor(floorsList);
+        Navigator.setFloor((TreeSet<Floor>) floorsList);
 
 
         Floor creatorFloor=createFloor(3,"FirstFloor",2);
         Floor creatorFloor1=createFloor(4,"Second Floor",2);
 
-        Set<Floor>creators=Set.of(creatorFloor,creatorFloor1);
-        creator.setFloor(creators);
+        Set<Floor> creators=Set.of(creatorFloor,creatorFloor1);
+        creator.setFloor((TreeSet<Floor>) creators);
+
+        //  zones
+
+        Zone zoze1=createZones("Work Zone",121,3,2);
+        Zone zone2=createZones("Meeting zone",122,2,2);
+
+        Set<Zone> zones=Set.of(zoze1,zone2);
+        creatorFloor.setZone(zones);
+
+        // sensors
+
+
+
+
+
+
 
 
 
@@ -89,6 +106,7 @@ public class TemperatureClass {
         return location;
     }
 
+
     public static Commercial createBuilding(int buildingNumber,String name,String colour,double height)  {
 
         Commercial commercial=new Commercial();
@@ -98,8 +116,6 @@ public class TemperatureClass {
         commercial.setHeight(height);
 
         return  commercial;
-
-
 
     }
 
@@ -112,6 +128,22 @@ public class TemperatureClass {
         return floor;
 
     }
+
+    public static Zone createZones(String name,int zoneNumber,int noOfZone,int noOfSensor){
+        Zone zone=new Zone();
+        zone.setName(name);
+        zone.setZoneNumber(zoneNumber);
+        zone.setNoOfZone(noOfZone);
+        zone.setNoOfSensor(noOfSensor);
+
+        return zone;
+    }
+
+//    public static Sensor createSensors(LocalTime aTime,float atemp) throws TemperatureRangeException {
+//        Temperature_sensor temperature_sensor=new Temperature_sensor();
+//        temperature_sensor.setTemp(23.5);
+//    }
+
 
 
 }

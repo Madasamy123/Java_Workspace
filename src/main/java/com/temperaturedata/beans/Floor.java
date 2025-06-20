@@ -1,19 +1,20 @@
 package com.temperaturedata.beans;
 
 import java.util.List;
+import java.util.Set;
 
 public class Floor {
-    private List<Zone> zone;
+    private Set<Zone> zone;
 
     private String name;
     private int noOfZone;
     private int floorNumber;
 
-    public List<Zone> getZone() {
+    public Set<Zone> getZone() {
         return zone;
     }
 
-    public void setZone(List<Zone> zone) {
+    public void setZone(Set<Zone> zone) {
         this.zone = zone;
     }
 

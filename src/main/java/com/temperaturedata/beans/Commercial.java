@@ -7,6 +7,22 @@ public final class Commercial extends Building {
     private Calendar openTime;
     private Calendar closeTime;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Calendar getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(Calendar closeTime) {
+        this.closeTime = closeTime;
+    }
+
     public class Parking{
         public void parkingarea(){
             System.out.println("This is Parking Area");

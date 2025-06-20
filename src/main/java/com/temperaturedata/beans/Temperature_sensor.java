@@ -2,13 +2,36 @@ package com.temperaturedata.beans;
 
 import com.ExceptionHandling.TemperatureRangeException;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Temperature_sensor implements Sensor{
 
-    private float temp;
 
+    private float atemp;
 
+    Map<LocalDateTime,Temperature> temperatureData;
 
-    public Temperature_sensor(float atemp)throws TemperatureRangeException{
+    public float getTemp() {
+        return atemp;
+    }
+
+    public void setTemp(float temp) {
+        this.atemp = atemp;
+    }
+
+    public Map<LocalDateTime, Temperature> getTemperatureData() {
+        return temperatureData;
+    }
+
+    public void setTemperatureData(Map<LocalDateTime, Temperature> temperatureData) {
+        this.temperatureData = temperatureData;
+    }
+
+    public Temperature_sensor()throws TemperatureRangeException{
 
         if(atemp<-89 || atemp>58){
             throw new TemperatureRangeException("Out of Temperature Range");
@@ -17,28 +40,28 @@ public class Temperature_sensor implements Sensor{
     }
     @Override
     public float getReading() {
-        return temp;
+        return atemp;
     }
 
     @Override
     public float getReading(ReadingUnit unit) {
         if(ReadingUnit.F.equals(unit) ){
-            return (temp*9/5)+32;
+            return (atemp*9/5)+32;
         }
         else{
-            return temp;
+            return atemp;
         }
 
     }
 
     @Override
     public String toString() {
-        return "Temperature " + temp;
+        return "Temperature " + atemp;
     }
 
     @Override
     public int hashCode(){
-        return (int)temp*34;
+        return (int)atemp*34;
     }
 
     @Override
@@ -50,7 +73,7 @@ public class Temperature_sensor implements Sensor{
             return true;
         }
         else{
-            return this.temp == myobj.temp;
+            return this.atemp == myobj.atemp;
         }
 
 

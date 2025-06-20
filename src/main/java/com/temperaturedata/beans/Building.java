@@ -3,9 +3,10 @@ package com.temperaturedata.beans;
 import com.ExceptionHandling.BuildingFloorException;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 public abstract sealed class Building permits Commercial, Residential {
-    private Set<Floor> floor;
+    private TreeSet<Floor> floor;
     private String colour;
     private String shape;
     private String name;
@@ -16,11 +17,11 @@ public abstract sealed class Building permits Commercial, Residential {
     private Boolean parkingAvailable;
     public abstract void ebBill();
 
-    public Set<Floor> getFloor() {
+    public TreeSet<Floor> getFloor() {
         return floor;
     }
 
-    public void setFloor(Set<Floor> floor) {
+    public void setFloor(TreeSet<Floor> floor) {
         this.floor = floor;
     }
 
