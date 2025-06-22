@@ -1,4 +1,4 @@
-//package com.stream;
+//package com.stream.exercise;
 //
 //// Create a set of subjects, Add a new subject at the begining. Remove the last elements
 //
@@ -8,7 +8,7 @@
 //
 //        String [] subjects={"Tamil","English","Maths","Science"};
 //
-//        subjects.s
+//
 //
 //    }
 //}

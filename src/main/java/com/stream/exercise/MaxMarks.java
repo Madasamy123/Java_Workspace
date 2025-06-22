@@ -1,8 +1,6 @@
-package com.stream;
+package com.stream.exercise;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 // From the mark list find the highest mark
